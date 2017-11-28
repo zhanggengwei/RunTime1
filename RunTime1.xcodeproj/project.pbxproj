@@ -29,6 +29,8 @@
 		75D7AD461FCBC456005E25E7 /* KDContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7AD451FCBC456005E25E7 /* KDContactManager.m */; };
 		75D7AD4A1FCBE182005E25E7 /* WDContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7AD491FCBE182005E25E7 /* WDContactModel.m */; };
 		75D7AD4E1FCBEF6F005E25E7 /* KDAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7AD4D1FCBEF6F005E25E7 /* KDAddressBook.m */; };
+		75D7AD551FCD107F005E25E7 /* KDContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7AD541FCD107F005E25E7 /* KDContactModel.m */; };
+		75D7AD581FCD161C005E25E7 /* KDContactAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7AD571FCD161C005E25E7 /* KDContactAddressBook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,11 @@
 		75D7AD4D1FCBEF6F005E25E7 /* KDAddressBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDAddressBook.m; sourceTree = "<group>"; };
 		75D7AD4F1FCBF89A005E25E7 /* KDContach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDContach.h; sourceTree = "<group>"; };
 		75D7AD501FCBFC3B005E25E7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		75D7AD531FCD107F005E25E7 /* KDContactModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDContactModel.h; sourceTree = "<group>"; };
+		75D7AD541FCD107F005E25E7 /* KDContactModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDContactModel.m; sourceTree = "<group>"; };
+		75D7AD561FCD161C005E25E7 /* KDContactAddressBook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDContactAddressBook.h; sourceTree = "<group>"; };
+		75D7AD571FCD161C005E25E7 /* KDContactAddressBook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDContactAddressBook.m; sourceTree = "<group>"; };
+		75D7AD5C1FCD35B7005E25E7 /* WDContactProtrocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDContactProtrocal.h; sourceTree = "<group>"; };
 		9D3F919FB16152CB1185F1DA /* Pods-RunTime1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTime1.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunTime1/Pods-RunTime1.release.xcconfig"; sourceTree = "<group>"; };
 		B6E3D84BE29BE41BBC0CD18E /* Pods-RunTime1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTime1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunTime1/Pods-RunTime1.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,7 +237,12 @@
 				75D7AD491FCBE182005E25E7 /* WDContactModel.m */,
 				75D7AD4C1FCBEF6F005E25E7 /* KDAddressBook.h */,
 				75D7AD4D1FCBEF6F005E25E7 /* KDAddressBook.m */,
+				75D7AD561FCD161C005E25E7 /* KDContactAddressBook.h */,
+				75D7AD571FCD161C005E25E7 /* KDContactAddressBook.m */,
+				75D7AD531FCD107F005E25E7 /* KDContactModel.h */,
+				75D7AD541FCD107F005E25E7 /* KDContactModel.m */,
 				75D7AD4F1FCBF89A005E25E7 /* KDContach.h */,
+				75D7AD5C1FCD35B7005E25E7 /* WDContactProtrocal.h */,
 			);
 			path = contact;
 			sourceTree = "<group>";
@@ -437,9 +449,11 @@
 				75D7ACF61FCBC383005E25E7 /* ViewController.m in Sources */,
 				75D7AD3B1FCBC3A6005E25E7 /* WDUser.m in Sources */,
 				75D7AD011FCBC383005E25E7 /* main.m in Sources */,
+				75D7AD581FCD161C005E25E7 /* KDContactAddressBook.m in Sources */,
 				75D7AD3C1FCBC3A6005E25E7 /* WDUserInfo.m in Sources */,
 				75D7ACF31FCBC383005E25E7 /* AppDelegate.m in Sources */,
 				75D7AD4A1FCBE182005E25E7 /* WDContactModel.m in Sources */,
+				75D7AD551FCD107F005E25E7 /* KDContactModel.m in Sources */,
 				75D7AD401FCBC3A6005E25E7 /* WDModel.m in Sources */,
 				75D7AD3A1FCBC3A6005E25E7 /* NSObject+WDCoding.m in Sources */,
 				75D7AD4E1FCBEF6F005E25E7 /* KDAddressBook.m in Sources */,

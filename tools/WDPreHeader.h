@@ -25,7 +25,5 @@ define WDLOG(...)
 #define STR(s) [NSString stringWithFormat:@"%s",s]
 #endif
 
-#define iOS9_LATER  ([[UIDevice currentDevice].systemVersion floatValue] >=9.0)
-
 
 #endif /* WDPreHeader_h */

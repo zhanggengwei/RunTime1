@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "WDPreHeader.h"
 #import "KDContach.h"
-
+#import "WDContactProtrocal.h"
 
 @interface KDAddressBook : NSObject
 
 + (instancetype)defaultManager;
+
+@property (nonatomic,strong) Class<WDContactProtrocal> cls;
 
 - (void)requestAuthorizeWithFunction:(requestAuthorizeBlock)block;
 
