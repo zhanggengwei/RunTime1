@@ -15,6 +15,7 @@
 @implementation KDAddressBook
 {
     ABAddressBookRef _bookRef;
+    compareSelectore _compareSelector;
 }
 + (instancetype)defaultManager
 {
@@ -44,6 +45,7 @@
         Class<WDContactProtrocal> cls = self.cls?self.cls:[WDContactModel class];
         id<WDContactProtrocal> model = [[cls.class alloc]initWithStructRecoard:recoard];
         [contactList addObject:model];
+        _compareSelector = model.selector;
     }
     CFRelease(arr);
     if(block)
@@ -55,7 +57,7 @@
 {
     [self loadAllContacts:^(NSArray *contacts) {
         NSMutableArray * array = [NSMutableArray arrayWithArray:contacts];
-        [array sortUsingComparator:nil];
+        [array sortUsingComparator:_compareSelector];
         if(block)
         {
             block(array);
@@ -71,8 +73,5 @@
             block(CFBridgingRelease(error),granted);
         }
     });
-    
 }
-
-
 @end
