@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WDContach.h"
+#import "WDContactProtrocal.h"
 
 @protocol WDAddRessBookProtrocal <NSObject>
 

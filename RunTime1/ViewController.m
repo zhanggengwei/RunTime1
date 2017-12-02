@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[WDAddressBook defaultManager]loadAllContacts:^(NSArray *contacts) {
+    [[WDContactManager defaultManger].addRessBook loadAllContacts:^(NSArray *contacts) {
         
     }];
     // Do any additional setup after loading the view, typically from a nib.

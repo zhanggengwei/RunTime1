@@ -16,7 +16,7 @@
     CNContactFetchRequest * _fetchRequest;
     WDAuthorizeStatus _status;
 }
-+ (instancetype)defaultManger
++ (instancetype)defaultManager
 {
     static KDContactAddressBook * manager;
     static dispatch_once_t token;
@@ -54,9 +54,9 @@
     NSMutableArray * array = [NSMutableArray new];
     NSError * error = nil;
     [_contactStore enumerateContactsWithFetchRequest:_fetchRequest error:&error usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-        [array addObject:contact];
+        id<WDContactProtrocal> model = [[self.cls alloc]initWithObj:contact];
+        [array addObject:model];
     }];
-    NSLog(@"arra==%@",array);
 }
 
 - (void)loadSortAllContacts:(getContactsBlock)block
@@ -93,4 +93,6 @@
     }
     return _status;
 }
+@synthesize cls;
+
 @end
