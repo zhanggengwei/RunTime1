@@ -7,22 +7,22 @@
 //  Copyright © 2017年 VD. All rights reserved.
 //
 
-#import "KDAddressBook.h"
+#import "WDAddressBook.h"
 #import <AddressBook/AddressBook.h>
 #import "WDPreHeader.h"
 #import "WDContactModel.h"
 
-@implementation KDAddressBook
+@implementation WDAddressBook
 {
     ABAddressBookRef _bookRef;
     compareSelectore _compareSelector;
 }
 + (instancetype)defaultManager
 {
-    static KDAddressBook * addressBook;
+    static WDAddressBook * addressBook;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        addressBook  = [KDAddressBook new];
+        addressBook  = [WDAddressBook new];
     });
     return addressBook;
 }
@@ -45,7 +45,7 @@
         Class<WDContactProtrocal> cls = self.cls?self.cls:[WDContactModel class];
         id<WDContactProtrocal> model = [[cls.class alloc]initWithStructRecoard:recoard];
         [contactList addObject:model];
-        _compareSelector = model.selector;
+        //_compareSelector = model.selector;
     }
     CFRelease(arr);
     if(block)
@@ -62,6 +62,7 @@
         {
             block(array);
         }
+        NSLog(@"array ==%@",array);
     }];
 }
 

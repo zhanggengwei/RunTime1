@@ -7,10 +7,10 @@
 //  Copyright © 2017年 VD. All rights reserved.
 //
 
-#import "KDContactManager.h"
+#import "WDContactManager.h"
 #import <Contacts/Contacts.h>
 #import <Contacts/CNContact.h>
-@implementation KDContactManager
+@implementation WDContactManager
 {
     CNContactStore * _contactStore;
     CNContactFetchRequest * _fetchRequest;
@@ -18,10 +18,10 @@
 }
 + (instancetype)defaultManger
 {
-    static KDContactManager * manager;
+    static WDContactManager * manager;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        manager = [KDContactManager new];
+        manager = [WDContactManager new];
     });
     return manager;
 }
@@ -30,10 +30,19 @@
 {
     if(self = [super init])
     {
-        NSArray * fetchArray = @[CNContactNamePrefixKey,CNContactGivenNameKey,
-                                 CNContactMiddleNameKey,CNContactFamilyNameKey          ,CNContactPreviousFamilyNameKey,CNContactNameSuffixKey,CNContactNicknameKey,CNContactOrganizationNameKey,CNContactDepartmentNameKey,CNContactJobTitleKey,CNContactPhoneticGivenNameKey,CNContactPhoneticMiddleNameKey           , CNContactPhoneticFamilyNameKey              , CNContactPhoneticOrganizationNameKey        , CNContactBirthdayKey                        , CNContactNonGregorianBirthdayKey            , CNContactNoteKey, CNContactImageDataKey, CNContactThumbnailImageDataKey, CNContactImageDataAvailableKey, CNContactTypeKey, CNContactPhoneNumbersKey, CNContactEmailAddressesKey,CNContactPostalAddressesKey,CNContactDatesKey,CNContactUrlAddressesKey,CNContactRelationsKey ,CNContactSocialProfilesKey,CNContactInstantMessageAddressesKey ];
-        _contactStore = [CNContactStore new];
-        _fetchRequest = [[CNContactFetchRequest alloc]initWithKeysToFetch:fetchArray];
+        if (@available(iOS 9.0, *)) {
+            if (@available(iOS 10.0, *)) {
+                NSArray * fetchArray = @[CNContactNamePrefixKey,CNContactGivenNameKey,CNContactMiddleNameKey,CNContactFamilyNameKey,CNContactPreviousFamilyNameKey,CNContactNameSuffixKey,CNContactNicknameKey,CNContactOrganizationNameKey,CNContactDepartmentNameKey,CNContactJobTitleKey,CNContactPhoneticGivenNameKey,CNContactPhoneticMiddleNameKey           ,CNContactPhoneticFamilyNameKey,CNContactPhoneticOrganizationNameKey,CNContactBirthdayKey,CNContactNonGregorianBirthdayKey            ,CNContactNoteKey,CNContactImageDataKey,CNContactThumbnailImageDataKey, CNContactImageDataAvailableKey, CNContactTypeKey, CNContactPhoneNumbersKey,CNContactEmailAddressesKey,CNContactPostalAddressesKey,CNContactDatesKey,CNContactUrlAddressesKey,CNContactRelationsKey ,CNContactSocialProfilesKey,CNContactInstantMessageAddressesKey ];
+                _contactStore = [CNContactStore new];
+                _fetchRequest = [[CNContactFetchRequest alloc]initWithKeysToFetch:fetchArray];
+                _fetchRequest = [[CNContactFetchRequest alloc]initWithKeysToFetch:fetchArray];
+            } else {
+                // Fallback on earlier versions
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
         
         
     }

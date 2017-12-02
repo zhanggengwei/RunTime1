@@ -49,7 +49,7 @@
 
 + (NSArray<WDProperty *> *)getPropertyListWithModelClass:(id)model
 {
-    if([model class]==[NSObject class])
+    if([model class]==[NSObject class]||[model class]==[NSNull class])
     {
         return nil;
     }

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WDContach.h"
+#import "WDAddRessBookProtrocal.h"
 
-@interface KDContactAddressBook : NSObject
+@interface KDContactAddressBook : NSObject<WDAddRessBookProtrocal>
 
 @end

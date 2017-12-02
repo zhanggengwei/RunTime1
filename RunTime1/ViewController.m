@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "KDContactManager.h"
-#import "KDAddressBook.h"
+#import "WDContactManager.h"
+#import "WDAddressBook.h"
 @interface ViewController ()
 
 @end
@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[KDAddressBook defaultManager]loadAllContacts:^(NSArray *contacts) {
+    [[WDAddressBook defaultManager]loadAllContacts:^(NSArray *contacts) {
         
     }];
     // Do any additional setup after loading the view, typically from a nib.

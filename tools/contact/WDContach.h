@@ -1,14 +1,14 @@
 
 //
-//  KDContach.h
+//  WDContach.h
 //  RunTime1
 //
 //  Created by VD on 2017/11/27.
 //  Copyright © 2017年 VD. All rights reserved.
 //
 
-#ifndef KDContach_h
-#define KDContach_h
+#ifndef WDContach_h
+#define WDContach_h
 typedef enum : NSUInteger {
     WDAuthorizeStatusNotDetermined,
     WDAuthorizeStatusRestricted,
