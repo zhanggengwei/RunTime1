@@ -46,61 +46,54 @@
 
 @implementation WDContactModel
 {
-#if __IOS9_LATER__
-    CNContact * _obj;
-#else
-    ABRecordRef _obj;
-#endif
+    void * _obj;
 }
-#if __IOS9_LATER__
-- (instancetype)initWithObj:(CNContact *)obj
+- (instancetype)initWithObj:(void *)obj
 {
     if(self = [super init])
     {
         _obj = obj;
-        [self _loadData];
+        #if __IOS9_LATER__
+        CNContact * contact = (__bridge CNContact *)(obj);
+        [self _loadData:contact];
+        #else
+        ABRecordRef recoard = obj;
+        [self _loadData:recoard];
+        #endif
     }
     return self;
 }
-- (void)_loadData
+#if __IOS9_LATER__
+- (void)_loadData:(CNContact *)contact
 {
-    _givenName = _obj.givenName;
-    _namePrefix = _obj.namePrefix;
-    _middleName = _obj.middleName;
-    _familyName = _obj.familyName;
-    _nameSuffix = _obj.nameSuffix;
-    _nickname = _obj.nickname;
+    _givenName = contact.givenName;
+    _namePrefix = contact.namePrefix;
+    _middleName = contact.middleName;
+    _familyName = contact.familyName;
+    _nameSuffix = contact.nameSuffix;
+    _nickname = contact.nickname;
     
-    _organizationName = _obj.organizationName;
-    _departmentName = _obj.departmentName;
-    _jobTitle = _obj.jobTitle;
+    _organizationName = contact.organizationName;
+    _departmentName = contact.departmentName;
+    _jobTitle = contact.jobTitle;
     
-    _phoneticGivenName = _obj.phoneticGivenName;
-    _phoneticMiddleName = _obj.phoneticMiddleName;
-    _phoneticFamilyName = _obj.phoneticFamilyName;
-    _note = _obj.note;
-    _imageData = _obj.imageData;
-    _thumbnailImageData = _obj.thumbnailImageData;
-    _imageDataAvailable = _obj.imageDataAvailable;
-    _phoneNumbers = _obj.phoneNumbers;
-    _emailAddresses = _obj.emailAddresses;
-    _postalAddresses = _obj.postalAddresses;
-    _urlAddresses = _obj.emailAddresses;
-    _birthday = _obj.birthday;
-    _nonGregorianBirthday = _obj.nonGregorianBirthday;
+    _phoneticGivenName = contact.phoneticGivenName;
+    _phoneticMiddleName = contact.phoneticMiddleName;
+    _phoneticFamilyName = contact.phoneticFamilyName;
+    _note = contact.note;
+    _imageData = contact.imageData;
+    _thumbnailImageData = contact.thumbnailImageData;
+    _imageDataAvailable = contact.imageDataAvailable;
+    _phoneNumbers = contact.phoneNumbers;
+    _emailAddresses = contact.emailAddresses;
+    _postalAddresses = contact.postalAddresses;
+    _urlAddresses = contact.emailAddresses;
+    _birthday = contact.birthday;
+    _nonGregorianBirthday = contact.nonGregorianBirthday;
     
 }
 #else
-- (instancetype)initWithStructRecoard:(ABRecordRef)model
-{
-    if(self = [super init])
-    {
-        _obj = model;
-        [self _loadData];
-    }
-    return self;
-}
-- (void)_loadData
+- (void)_loadData:(ABRecordRef)recoard
 {
     _givenName = [self _loadProperty:kABPersonFirstNameProperty];
     _namePrefix = [self _loadProperty:kABPersonPrefixProperty];

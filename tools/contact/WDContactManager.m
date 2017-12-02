@@ -10,11 +10,19 @@
 #import "WDContactManager.h"
 #import "WDContactModel.h"
 #import "KDContactAddressBook.h"
+#import "WDAddressBook.h"
+//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
+//#define __IOS9_LATER__ (1)
+//#else
+//#define __IOS9_LATER__ (0)
+//#endif
+
+@interface WDContactManager()
+@property (nonatomic,weak) NSObject<WDAddRessBookProtrocal> * addRessBook;
+@end
 
 @implementation WDContactManager
-{
-    id<WDAddRessBookProtrocal> _addRessBook;
-}
+
 + (instancetype)defaultManger
 {
     static WDContactManager * manager;
@@ -30,6 +38,7 @@
     if(cls)
     {
         _cls = cls;
+        _addRessBook.cls = cls;
     }
 }
 
@@ -44,7 +53,13 @@
     if(self = [super init])
     {
         _cls = [WDContactModel class];
-        _addRessBook = [KDContactAddressBook defaultManager];
+        
+#if __IOS9_LATER__
+        self.addRessBook = [KDContactAddressBook defaultManager];
+#else
+       self.addRessBook = [WDAddressBook defaultManager];
+#endif
+        [self setCls:[WDContactModel class]];
     }
     return self;
 }

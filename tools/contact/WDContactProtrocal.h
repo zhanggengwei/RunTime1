@@ -9,6 +9,12 @@
 
 #import <Foundation/Foundation.h>
 #import <AddressBook/AddressBook.h>
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
+#define __IOS9_LATER__ (1)
+#else
+#define __IOS9_LATER__ (0)
+#endif
+
 @protocol WDContactProtrocal;
 
 typedef NSComparisonResult (^compareSelectore)(id<WDContactProtrocal> model1,id<WDContactProtrocal> model2);
@@ -42,10 +48,7 @@ typedef NSComparisonResult (^compareSelectore)(id<WDContactProtrocal> model1,id<
 @property (readonly, strong,nonatomic) NSDateComponents *birthday;
 @property (readonly, strong,nonatomic) NSDateComponents *nonGregorianBirthday;
 
+- (instancetype)initWithObj:(void *)obj;
 
-#if __IOS9_LATER__
-- (instancetype)initWithObj:(id)obj;
-#else
-- (instancetype)initWithStructRecoard:(ABRecordRef)obj;
-#endif
+
 @end

@@ -42,12 +42,7 @@
 @property (readonly, strong,nonatomic) NSDateComponents *birthday;
 @property (readonly, strong,nonatomic) NSDateComponents *nonGregorianBirthday;
 
+- (instancetype)initWithObj:(void *)obj;
 
-@property (nonatomic,copy) compareSelectore selector;
-#if __IOS9_LATER__
-- (instancetype)initWithObj:(CNContact *)obj;
-#else
-- (instancetype)initWithStructRecoard:(ABRecordRef)obj;
-#endif
 
 @end

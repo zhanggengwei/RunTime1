@@ -10,18 +10,21 @@
 #import "KDContactAddressBook.h"
 #import <Contacts/Contacts.h>
 #import <Contacts/CNContact.h>
+#import "WDContactModel.h"
+
 @implementation KDContactAddressBook
 {
     CNContactStore * _contactStore;
     CNContactFetchRequest * _fetchRequest;
     WDAuthorizeStatus _status;
 }
+@synthesize cls = _cls;
 + (instancetype)defaultManager
 {
     static KDContactAddressBook * manager;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        manager = [KDContactAddressBook new];
+        manager = [[KDContactAddressBook alloc]init];
     });
     return manager;
 }
@@ -54,14 +57,20 @@
     NSMutableArray * array = [NSMutableArray new];
     NSError * error = nil;
     [_contactStore enumerateContactsWithFetchRequest:_fetchRequest error:&error usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-        id<WDContactProtrocal> model = [[self.cls alloc]initWithObj:contact];
+        id<WDContactProtrocal> model = [[self.cls.class alloc]initWithObj:(__bridge void *)(contact)];
         [array addObject:model];
     }];
 }
 
 - (void)loadSortAllContacts:(getContactsBlock)block
 {
-    
+    [self loadAllContacts:^(NSArray *contacts) {
+        NSArray * arr = [contacts sortedArrayUsingSelector:@selector(compare:)];
+        if(block)
+        {
+            block(arr);
+        }
+    }];
 }
 - (void)requestAuthorizeWithFunction:(requestAuthorizeBlock)block
 {
@@ -93,6 +102,4 @@
     }
     return _status;
 }
-@synthesize cls;
-
 @end

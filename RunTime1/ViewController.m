@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Header.pch"
 #import "WDContactManager.h"
 #import "WDAddressBook.h"
 @interface ViewController ()

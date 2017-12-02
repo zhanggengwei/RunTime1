@@ -55,6 +55,7 @@
 		75A67B2A1FD280EF00B51FA2 /* NSObject+WDClassProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WDClassProperty.h"; sourceTree = "<group>"; };
 		75A67B2B1FD280EF00B51FA2 /* NSObject+WDClassProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WDClassProperty.m"; sourceTree = "<group>"; };
 		75A67B2D1FD2836D00B51FA2 /* WDAddRessBookProtrocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDAddRessBookProtrocal.h; sourceTree = "<group>"; };
+		75A67B2E1FD2A0EC00B51FA2 /* Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.pch; sourceTree = "<group>"; };
 		75D7ACEE1FCBC383005E25E7 /* RunTime1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTime1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D7ACF11FCBC383005E25E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		75D7ACF21FCBC383005E25E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 				75A67B2A1FD280EF00B51FA2 /* NSObject+WDClassProperty.h */,
 				75A67B2B1FD280EF00B51FA2 /* NSObject+WDClassProperty.m */,
 				75A67B2D1FD2836D00B51FA2 /* WDAddRessBookProtrocal.h */,
+				75A67B2E1FD2A0EC00B51FA2 /* Header.pch */,
 			);
 			path = contact;
 			sourceTree = "<group>";
@@ -582,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -631,7 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -645,6 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TJ7XWRA893;
+				GCC_PREFIX_HEADER = /Users/vd/Documents/GitHub/RunTime1/tools/contact/Header.pch;
 				INFOPLIST_FILE = RunTime1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -664,6 +667,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TJ7XWRA893;
+				GCC_PREFIX_HEADER = /Users/vd/Documents/GitHub/RunTime1/tools/contact/Header.pch;
 				INFOPLIST_FILE = RunTime1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

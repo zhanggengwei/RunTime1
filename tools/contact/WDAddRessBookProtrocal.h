@@ -13,7 +13,7 @@
 @protocol WDAddRessBookProtrocal <NSObject>
 
 + (instancetype)defaultManager;
-@property (nonatomic,strong) Class<WDContactProtrocal> cls;
+@property (nonatomic,strong) Class <WDContactProtrocal> cls;
 @property (nonatomic,assign,readonly)WDAuthorizeStatus status;
 - (void)requestAuthorizeWithFunction:(requestAuthorizeBlock)block;
 //没有顺序的返回通讯录的信息

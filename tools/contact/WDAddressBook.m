@@ -43,7 +43,7 @@
     for (int i = 0; i <count; i++) {
         ABRecordRef recoard = CFArrayGetValueAtIndex(arr,i);
         Class<WDContactProtrocal> cls = self.cls?self.cls:[WDContactModel class];
-        id<WDContactProtrocal> model = [[cls.class alloc]initWithStructRecoard:recoard];
+        id<WDContactProtrocal> model = [[cls.class alloc]initWithObj:recoard];
         [contactList addObject:model];
         //_compareSelector = model.selector;
     }
@@ -56,16 +56,13 @@
 - (void)loadSortAllContacts:(getContactsBlock)block
 {
     [self loadAllContacts:^(NSArray *contacts) {
-        NSMutableArray * array = [NSMutableArray arrayWithArray:contacts];
-        [array sortUsingComparator:_compareSelector];
+        NSArray * arr =[contacts sortedArrayUsingSelector:@selector(compare:)];
         if(block)
         {
-            block(array);
+            block(arr);
         }
-        NSLog(@"array ==%@",array);
     }];
 }
-
 - (void)requestAuthorizeWithFunction:(requestAuthorizeBlock)block
 {
     ABAddressBookRequestAccessWithCompletion(_bookRef, ^(bool granted, CFErrorRef error) {
